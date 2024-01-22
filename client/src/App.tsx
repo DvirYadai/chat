@@ -1,8 +1,13 @@
-import React from 'react';
-import './App.css';
+import { ThemeProvider } from 'styled-components';
+import { theme } from './styles';
+import { Main } from './components/pages';
 
 function App() {
-	return <div className="App" />;
+	return (
+		<ThemeProvider theme={theme}>
+			<Main />
+		</ThemeProvider>
+	);
 }
 
 export default App;
