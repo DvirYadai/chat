@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { Box } from './box';
 
-interface FlexProps {
+interface Props {
 	display?: string;
 }
 
-export const Flex = styled(Box).attrs<FlexProps>({ display: 'flex' });
+export const Flex = styled(Box).attrs<Props>({ display: 'flex' })``;
