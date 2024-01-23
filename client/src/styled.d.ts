@@ -3,9 +3,9 @@ import 'styled-components';
 
 // and extend them!
 declare module 'styled-components' {
-	export interface DefaultTheme {
-		colors: { main: { [name: string]: string } };
-		fontSizes: Array;
-		fontWeights: Array;
-	}
+  export interface DefaultTheme {
+    colors: { main: { [name: string]: string } };
+    fontSizes: Array;
+    fontWeights: Array;
+  }
 }
