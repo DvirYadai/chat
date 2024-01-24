@@ -11,9 +11,23 @@ import {
   ColorProps,
   flexbox,
   FlexboxProps,
+  borders,
+  BordersProps,
+  position,
+  PositionProps,
+  opacity,
+  OpacityProps,
 } from 'styled-system';
 
-type BoxProps = FontSizeProps & SpaceProps & LayoutProps & TypographyProps & ColorProps & FlexboxProps;
+type BoxProps = FontSizeProps &
+  SpaceProps &
+  LayoutProps &
+  TypographyProps &
+  ColorProps &
+  FlexboxProps &
+  BordersProps &
+  PositionProps &
+  OpacityProps;
 
 export const Box = styled.div<BoxProps>`
   ${space}
@@ -21,4 +35,7 @@ export const Box = styled.div<BoxProps>`
     ${typography}
     ${color}
     ${flexbox}
+    ${borders}
+    ${position}
+    ${opacity}
 `;
