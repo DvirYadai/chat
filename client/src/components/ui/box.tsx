@@ -17,6 +17,8 @@ import {
   PositionProps,
   opacity,
   OpacityProps,
+  shadow,
+  ShadowProps,
 } from 'styled-system';
 
 type BoxProps = FontSizeProps &
@@ -27,7 +29,8 @@ type BoxProps = FontSizeProps &
   FlexboxProps &
   BordersProps &
   PositionProps &
-  OpacityProps;
+  OpacityProps &
+  ShadowProps;
 
 export const Box = styled.div<BoxProps>`
   ${space}
@@ -38,4 +41,5 @@ export const Box = styled.div<BoxProps>`
     ${borders}
     ${position}
     ${opacity}
+    ${shadow}
 `;
