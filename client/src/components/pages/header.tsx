@@ -4,11 +4,12 @@ import { Flex, Svg, Text } from '../ui';
 export function Header() {
   return (
     <Flex
+      position="relative"
       color="main.black"
       justifyContent="space-between"
       height="60px"
       bg="main.white"
-      boxShadow="0px 0px 25px -10px rgba(0,0,0,0.3)"
+      boxShadow="0px 0px 30px -10px rgba(0,0,0,0.3)"
       p="0 25px"
     >
       <Flex alignItems="center" fontSize={5}>
