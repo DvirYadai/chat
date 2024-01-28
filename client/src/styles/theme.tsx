@@ -7,6 +7,6 @@ export const theme: DefaultTheme = {
       black: '#000',
     },
   },
-  fontSizes: ['10px', '12px', '14px', '16px', '18px', '20px'],
+  fontSizes: ['10px', '12px', '14px', '16px', '18px', '20px', '22px', '24px'],
   fontWeights: [300, 400, 500, 600, 700],
 };
