@@ -1,6 +1,6 @@
+import { Sidebar } from '../sidebar';
 import { Box } from '../ui';
-import { Header } from './header';
-import { Sidebar } from './sidebar';
+import { Header } from '../header';
 
 export function Main() {
   return (
