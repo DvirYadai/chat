@@ -3,3 +3,4 @@ export { ReactComponent as MessageIcon } from './message.svg';
 export { ReactComponent as PhoneIcon } from './phone.svg';
 export { ReactComponent as GroupIcon } from './group.svg';
 export { ReactComponent as SettingsIcon } from './settings.svg';
+export { ReactComponent as SearchIcon } from './search.svg';
