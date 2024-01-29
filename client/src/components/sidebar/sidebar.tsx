@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { GroupIcon, MessageIcon, PhoneIcon, SettingsIcon } from '../../styles/icons';
 import { Box, Flex, Svg } from '../ui';
+import { Chats } from './chats';
 
 const StyledSvg = styled(Svg)`
   cursor: pointer;
@@ -31,8 +32,9 @@ function Menu() {
 
 export function Sidebar() {
   return (
-    <Box width="250px" height="calc(100% - 60px)" bg="#f8fafc">
+    <Box width="325px" height="calc(100% - 60px)" bg="#f8fafc">
       <Menu />
+      <Chats />
     </Box>
   );
 }
