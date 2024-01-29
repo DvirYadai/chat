@@ -19,7 +19,26 @@ import {
   OpacityProps,
   shadow,
   ShadowProps,
+  system,
+  background,
+  BackgroundProps,
 } from 'styled-system';
+
+const textOverflow = system({
+  textOverflow: true,
+  overflow: {
+    property: 'overflow',
+    scale: 'textOverflows',
+  },
+});
+
+const whiteSpace = system({
+  whiteSpace: true,
+});
+
+const float = system({
+  float: true,
+});
 
 type BoxProps = FontSizeProps &
   SpaceProps &
@@ -30,7 +49,8 @@ type BoxProps = FontSizeProps &
   BordersProps &
   PositionProps &
   OpacityProps &
-  ShadowProps;
+  ShadowProps &
+  BackgroundProps & { textOverflow?: string; whiteSpace?: string; float?: string };
 
 export const Box = styled.div<BoxProps>`
   ${space}
@@ -42,4 +62,8 @@ export const Box = styled.div<BoxProps>`
     ${position}
     ${opacity}
     ${shadow}
+    ${textOverflow}
+    ${whiteSpace}
+    ${float}
+    ${background}
 `;
