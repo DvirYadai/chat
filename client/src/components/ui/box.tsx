@@ -40,6 +40,10 @@ const float = system({
   float: true,
 });
 
+const gap = system({
+  gap: true,
+});
+
 type BoxProps = FontSizeProps &
   SpaceProps &
   LayoutProps &
@@ -50,7 +54,7 @@ type BoxProps = FontSizeProps &
   PositionProps &
   OpacityProps &
   ShadowProps &
-  BackgroundProps & { textOverflow?: string; whiteSpace?: string; float?: string };
+  BackgroundProps & { textOverflow?: string; whiteSpace?: string; float?: string; gap?: string };
 
 export const Box = styled.div<BoxProps>`
   ${space}
@@ -66,4 +70,5 @@ export const Box = styled.div<BoxProps>`
     ${whiteSpace}
     ${float}
     ${background}
+    ${gap}
 `;
