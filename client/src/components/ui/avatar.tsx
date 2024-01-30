@@ -3,7 +3,7 @@ import { Text } from './text';
 
 const height = 39;
 
-export function Avatar() {
+export function Avatar({ className }: { className?: string }) {
   return (
     <Flex
       alignItems="center"
@@ -12,6 +12,7 @@ export function Avatar() {
       borderRadius="50%"
       height={`${height}px`}
       width={`${height}px`}
+      className={className}
     >
       <Text fontSize={height / 2} pl="2px">
         DY
