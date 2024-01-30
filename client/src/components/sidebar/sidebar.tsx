@@ -3,7 +3,7 @@ import { GroupIcon, MessageIcon, PhoneIcon, SettingsIcon } from '../../styles/ic
 import { Box, Flex, Svg } from '../ui';
 import { Chats } from './chats';
 
-const StyledSvg = styled(Svg)`
+export const StyledSvg = styled(Svg)`
   cursor: pointer;
   &:hover {
     path {
@@ -17,8 +17,8 @@ function Menu() {
     <Flex
       justifyContent="space-around"
       alignItems="center"
-      boxShadow="0px 0px 30px -10px rgba(0,0,0,0.3)"
-      height="55px"
+      boxShadow="10px 0px 30px -10px rgba(0,0,0,0.3)"
+      height="65px"
       bg="main.white"
       p="0 10px"
     >
@@ -32,7 +32,7 @@ function Menu() {
 
 export function Sidebar() {
   return (
-    <Box width="325px" height="calc(100% - 60px)" bg="#f8fafc">
+    <Box width="325px" bg="#f8fafc">
       <Menu />
       <Chats />
     </Box>
