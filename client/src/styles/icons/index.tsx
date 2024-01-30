@@ -4,3 +4,8 @@ export { ReactComponent as PhoneIcon } from './phone.svg';
 export { ReactComponent as GroupIcon } from './group.svg';
 export { ReactComponent as SettingsIcon } from './settings.svg';
 export { ReactComponent as SearchIcon } from './search.svg';
+export { ReactComponent as VideoIcon } from './video.svg';
+export { ReactComponent as EllipsisIcon } from './ellipsis.svg';
+export { ReactComponent as PaperclipIcon } from './paperclip.svg';
+export { ReactComponent as SmileIcon } from './smile.svg';
+export { ReactComponent as PaperplaneIcon } from './paperplane.svg';
