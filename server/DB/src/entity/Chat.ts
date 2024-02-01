@@ -1,16 +1,21 @@
-import { Entity, PrimaryGeneratedColumn, Column, Timestamp, CreateDateColumn } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from "typeorm"
+import { User } from "./User"
+import { Message } from "./Message"
 
 @Entity()
 export class Chat {
 
     @PrimaryGeneratedColumn()
-    chat_id: number
+    id: number
 
-    @Column()
-    user1_id: number
+    @ManyToOne(() => User, (user) => user.id)
+    user1_: User
 
-    @Column()
-    user2_id: number
+    @ManyToOne(() => User, (user) => user.id)
+    user2_: User
+
+    @OneToMany(() => Message, (message) => message.chat_)
+    messages: Message[];
 
     @Column()
     last_message_id: number

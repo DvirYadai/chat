@@ -4,7 +4,7 @@ import { Entity, PrimaryGeneratedColumn, Column, Timestamp, CreateDateColumn } f
 export class User {
 
     @PrimaryGeneratedColumn()
-    user_id: number
+    id: number
 
     @Column()
     username: string
