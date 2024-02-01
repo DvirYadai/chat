@@ -1,7 +1,8 @@
 import styled, { css } from 'styled-components';
-import { Box, Flex, Text } from '../ui';
+import { Box, Flex, Svg, Text } from '../ui';
 import { Avatar } from '../ui/avatar';
 import { SearchBar } from '../ui/searchbar';
+import { PlusIcon } from '../../styles/icons';
 
 const CardContainer = styled(Flex)`
   ${({ theme }) => css`
@@ -14,6 +15,16 @@ const CardContainer = styled(Flex)`
     padding: 15px;
     box-shadow: 0px 0px 20px -10px rgba(0, 0, 0, 0.3);
   `}
+`;
+
+export const AddButton = styled(Flex)`
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  width: 31px;
+  height: 30px;
+  border-radius: 50%;
+  background: linear-gradient(90deg, rgba(114, 65, 233, 1) 0%, rgba(180, 53, 245, 1) 65%);
 `;
 
 function ChatCard() {
@@ -52,9 +63,14 @@ function ChatCard() {
 export function Chats() {
   return (
     <Box p="20px">
-      <Text fontWeight={3} fontSize={7} mb="7px">
-        Chats
-      </Text>
+      <Flex justifyContent="space-between" alignItems="center" mb="10px">
+        <Text fontWeight={3} fontSize={7} mb="7px">
+          Chats
+        </Text>
+        <AddButton>
+          <Svg as={PlusIcon} />
+        </AddButton>
+      </Flex>
       <SearchBar />
       <Box mt="20px">
         {[0, 0, 0, 0, 0].map((i) => (

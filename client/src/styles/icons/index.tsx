@@ -9,3 +9,4 @@ export { ReactComponent as EllipsisIcon } from './ellipsis.svg';
 export { ReactComponent as PaperclipIcon } from './paperclip.svg';
 export { ReactComponent as SmileIcon } from './smile.svg';
 export { ReactComponent as PaperplaneIcon } from './paperplane.svg';
+export { ReactComponent as PlusIcon } from './plus.svg';
