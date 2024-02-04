@@ -9,7 +9,7 @@ import { router as usersRoute } from "./routes/users";
 dotenv.config();
 
 const app: Application = express();
-app.use(cors());
+app.use(cors({credentials: true, origin: 'http://localhost:3000', methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', allowedHeaders: 'Content-Type,Authorization'}));
 app.use(express.json());
 app.use(cookieParser());
 
