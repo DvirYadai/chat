@@ -1,8 +1,10 @@
 import styled, { css } from 'styled-components';
-import { ReactNode } from 'react';
+import React, { ReactNode, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Header } from '../header';
 import { Box, Flex, Text } from '../ui';
+import { User, login } from '../../slices/authSlice';
+import { useAppDispatch } from '../../hooks/redux-hooks';
 
 const FormContainer = styled(Flex)`
   ${({ theme }) => css`
@@ -72,16 +74,43 @@ export function AuthPage({ children }: { children: ReactNode }) {
 }
 
 export function Login() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const dispatch = useAppDispatch();
+
+  const onLogin = async (e: React.FormEvent<HTMLFormElement>, data: User) => {
+    e.preventDefault();
+    try {
+      await dispatch(login(data)).unwrap();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <AuthPage>
       <Text mb="25px" fontWeight={3} fontSize={9}>
         Login
       </Text>
-      <form style={{ width: '100%' }}>
+      <form onSubmit={(e) => onLogin(e, { email, password })} style={{ width: '100%' }}>
         <Text fontSize={1}>Email</Text>
-        <Input id="email" placeholder="Type your email" />
+        <Input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          id="email"
+          placeholder="Type your email"
+          required
+        />
         <Text fontSize={1}>Password</Text>
-        <Input id="password" placeholder="Type your password" />
+        <Input
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          id="password"
+          placeholder="Type your password"
+          type="password"
+          required
+        />
         <Text color="#889098" style={{ cursor: 'pointer' }} fontSize={1} float="right">
           Forgot password?
         </Text>
