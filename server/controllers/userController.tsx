@@ -52,11 +52,11 @@ const login_post = async (req: Request, res: Response) => {
         email,
     });
     if (!existUser) {
-      return res.status(404).send("Incorrect email or password");
+      return res.status(401).send("Incorrect email or password");
     }
     const auth = compareSync(password, existUser.password_hash);
     if (!auth) {
-      return res.status(404).send("Incorrect email or password");
+      return res.status(401).send("Incorrect email or password");
     }
     const token = createToken(existUser);
     res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
