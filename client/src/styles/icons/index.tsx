@@ -10,3 +10,8 @@ export { ReactComponent as PaperclipIcon } from './paperclip.svg';
 export { ReactComponent as SmileIcon } from './smile.svg';
 export { ReactComponent as PaperplaneIcon } from './paperplane.svg';
 export { ReactComponent as PlusIcon } from './plus.svg';
+export { ReactComponent as SuccessIcon } from './success.svg';
+export { ReactComponent as ErrorIcon } from './error.svg';
+export { ReactComponent as WarningIcon } from './warning.svg';
+export { ReactComponent as InfoIcon } from './info.svg';
+export { ReactComponent as ExitIcon } from './exit.svg';

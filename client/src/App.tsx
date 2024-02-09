@@ -5,6 +5,7 @@ import { theme } from './styles';
 import { SignUp, Login, Main } from './components/pages';
 import store from './store';
 import { useAppSelector } from './hooks/redux-hooks';
+import { NotificationPopup } from './components/ui/notification';
 
 function ProtectedLayout() {
   const basicUserInfo = useAppSelector((state) => state.auth.basicUserInfo);
@@ -46,6 +47,7 @@ function App() {
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
+        <NotificationPopup />
         <RouterProvider router={router} />
       </ThemeProvider>
     </Provider>
