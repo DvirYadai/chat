@@ -12,11 +12,7 @@ export function SignUp() {
 
   const onRegister = async (e: React.FormEvent<HTMLFormElement>, data: NewUser) => {
     e.preventDefault();
-    try {
-      await dispatch(register(data)).unwrap();
-    } catch (error) {
-      console.log(error);
-    }
+    await dispatch(register(data));
   };
 
   return (

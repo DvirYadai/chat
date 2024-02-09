@@ -80,11 +80,7 @@ export function Login() {
 
   const onLogin = async (e: React.FormEvent<HTMLFormElement>, data: User) => {
     e.preventDefault();
-    try {
-      await dispatch(login(data)).unwrap();
-    } catch (error) {
-      console.log(error);
-    }
+    await dispatch(login(data));
   };
 
   return (

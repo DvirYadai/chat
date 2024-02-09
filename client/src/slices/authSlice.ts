@@ -1,5 +1,11 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
+import { AxiosError } from 'axios';
 import axiosInstance from '../axiosInstance';
+import { NotificationType, hideNotification, showNotification } from './notificationSlice';
+
+type ErrorResponse = {
+  message: string;
+};
 
 export type User = {
   email: string;
@@ -35,22 +41,62 @@ const initialState: AuthApiState = {
   error: null,
 };
 
-export const login = createAsyncThunk('login', async (data: User) => {
-  const response = await axiosInstance.post('/users/login', data);
-  const resData = response.data;
+export const login = createAsyncThunk('login', async (data: User, { rejectWithValue, dispatch }) => {
+  try {
+    dispatch(hideNotification());
+    const response = await axiosInstance.post('/users/login', data);
+    const resData = response.data;
+    localStorage.setItem('userInfo', JSON.stringify(resData));
+    return resData;
+  } catch (error) {
+    if (error instanceof AxiosError && error.response) {
+      const errorResponse = error.response.data;
+      dispatch(
+        showNotification({
+          message: errorResponse,
+          type: NotificationType.Error,
+        })
+      );
+      return rejectWithValue(errorResponse);
+    }
+    dispatch(
+      showNotification({
+        message: 'An error occurred',
+        type: NotificationType.Error,
+      })
+    );
 
-  localStorage.setItem('userInfo', JSON.stringify(resData));
-
-  return resData;
+    throw error;
+  }
 });
 
-export const register = createAsyncThunk('register', async (data: NewUser) => {
-  const response = await axiosInstance.post('/users/signup', data);
-  const resData = response.data;
+export const register = createAsyncThunk('register', async (data: NewUser, { rejectWithValue, dispatch }) => {
+  try {
+    dispatch(hideNotification());
+    const response = await axiosInstance.post('/users/signup', data);
+    const resData = response.data;
+    localStorage.setItem('userInfo', JSON.stringify(resData));
+    return resData;
+  } catch (error) {
+    if (error instanceof AxiosError && error.response) {
+      const errorResponse = error.response.data;
+      dispatch(
+        showNotification({
+          message: errorResponse,
+          type: NotificationType.Error,
+        })
+      );
+      return rejectWithValue(errorResponse);
+    }
+    dispatch(
+      showNotification({
+        message: 'An error occurred',
+        type: NotificationType.Error,
+      })
+    );
 
-  localStorage.setItem('userInfo', JSON.stringify(resData));
-
-  return resData;
+    throw error;
+  }
 });
 
 export const logout = createAsyncThunk('logout', async () => {
@@ -91,7 +137,12 @@ const authSlice = createSlice({
       })
       .addCase(login.rejected, (state, action) => {
         state.status = 'failed';
-        state.error = action.error.message || 'Login failed';
+
+        if (action.payload) {
+          state.error = (action.payload as ErrorResponse).message || 'Login failed';
+        } else {
+          state.error = action.error.message || 'Login failed';
+        }
       })
 
       .addCase(register.pending, (state) => {
@@ -104,7 +155,11 @@ const authSlice = createSlice({
       })
       .addCase(register.rejected, (state, action) => {
         state.status = 'failed';
-        state.error = action.error.message || 'Registration failed';
+        if (action.payload) {
+          state.error = (action.payload as ErrorResponse).message || 'Registration failed';
+        } else {
+          state.error = action.error.message || 'Registration failed';
+        }
       })
 
       .addCase(logout.pending, (state) => {
