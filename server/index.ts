@@ -5,6 +5,8 @@ import { AppDataSource } from './DB/src/data-source';
 import "reflect-metadata"
 import cookieParser from "cookie-parser";
 import { router as usersRoute } from "./routes/users";
+import { router as dataRoute } from "./routes/data";
+import { checkUser } from './middlewares/authMiddleware';
 
 dotenv.config();
 
@@ -17,6 +19,7 @@ app.get('/', (req: Request, res: Response) => {
   res.send('Welcome to Express & TypeScript Server');
 });
 app.use("/users", usersRoute);
+app.use("/data", checkUser, dataRoute);
 
 AppDataSource.initialize().then(async () => {
   console.log("Successfully connected to DB")
