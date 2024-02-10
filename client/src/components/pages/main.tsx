@@ -5,6 +5,7 @@ import { Header } from '../header';
 import { ChatView } from '../chat-view';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux-hooks';
 import { verify } from '../../slices/authSlice';
+import { getAllData } from '../../slices/userSlice';
 
 export function Main() {
   const basicUserInfo = useAppSelector((state) => state.auth.basicUserInfo);
@@ -15,6 +16,7 @@ export function Main() {
       await dispatch(verify(basicUserInfo)).unwrap();
     };
     verifyFunc();
+    dispatch(getAllData()).unwrap();
   });
 
   return (
