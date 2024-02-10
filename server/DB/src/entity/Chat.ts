@@ -17,6 +17,6 @@ export class Chat {
     @OneToMany(() => Message, (message) => message.chat_)
     messages: Message[];
 
-    @Column()
+    @Column({ nullable: true })
     last_message_id: number
 }

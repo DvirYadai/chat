@@ -6,6 +6,8 @@ import { Group } from "./entity/Group"
 import { GroupMembership } from "./entity/GroupMembership"
 import { Message } from "./entity/Message"
 import { AddUser1627366244506 } from "./migration/UserMigration"
+import { AddChat1627366244512 } from "./migration/ChatMigration"
+import { AddMessages1627366244532 } from "./migration/MessageMigration"
 
 export const AppDataSource = new DataSource({
     type: "mysql",
@@ -17,6 +19,6 @@ export const AppDataSource = new DataSource({
     synchronize: true,
     logging: false,
     entities: [User, Chat, Group, GroupMembership, Message],
-    migrations: [AddUser1627366244506],
+    migrations: [AddUser1627366244506, AddChat1627366244512, AddMessages1627366244532],
     subscribers: [],
 })
