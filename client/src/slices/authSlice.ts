@@ -16,7 +16,7 @@ export type NewUser = User & {
   username: string;
 };
 
-type UserBasicInfo = {
+export type UserBasicInfo = {
   id: number;
   username: string;
   email: string;
