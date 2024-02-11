@@ -100,7 +100,7 @@ export const register = createAsyncThunk('register', async (data: NewUser, { rej
 });
 
 export const logout = createAsyncThunk('logout', async () => {
-  const response = await axiosInstance.post('/users/logout', {});
+  const response = await axiosInstance.get('/users/logout');
   const resData = response.data;
 
   localStorage.removeItem('userInfo');
